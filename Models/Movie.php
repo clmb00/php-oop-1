@@ -5,19 +5,21 @@ class Movie{
   public $year;
   public $genres;
   public $descr;
+  public $crew;
   public $rating = '-';
 
   /**
    * @param String $_title The title of the movie
    * @param Number $_year The year of the releasing
-   * @param Array $_title The genre of the movie
-   * @param String $_title A little description/summary of the movie
+   * @param Array $_genres The genre of the movie
+   * @param String $_descr A little description/summary of the movie
    */
-  public function __construct($_title, $_year, $_genres, $_descr = "")
+  public function __construct($_title, $_year, $_genres, Crew $_crew, $_descr = "",)
   {
     $this->title = $_title;
     $this->year = $_year;
     $this->descr = $_descr;
+    $this->crew = $_crew;
 
     if(is_array($_genres)){
       $this->genres = $_genres;
@@ -46,7 +48,7 @@ class Movie{
   public function getFullInfo(){
     return "<p><strong>Title</strong>: $this->title - <strong>Year</strong>: $this->year </p> 
             <p><strong>Summary</strong>: $this->descr </p> 
-            <p><strong>Genre</strong>: " . $this->getGenreString() ." <strong>Rating</strong>: $this->rating / 10</p><hr>";
+            <p><strong>Genre</strong>: " . $this->getGenreString() ."</p><p><strong>Rating</strong>: $this->rating / 10</p>";
   }
 
 }
